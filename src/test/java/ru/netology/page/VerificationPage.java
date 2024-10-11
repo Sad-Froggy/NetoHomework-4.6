@@ -17,7 +17,7 @@ public class VerificationPage {
     }
 
     public DashboardPage validVerify(String verificationCode) {
-        code.setValue(DataHelper.getVerificationCode());
+        code.setValue(verificationCode);
         actionButton.click();
         return new DashboardPage();
     }
