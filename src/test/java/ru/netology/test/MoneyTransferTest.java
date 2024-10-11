@@ -11,23 +11,14 @@ import static com.codeborne.selenide.Selenide.*;
 public class MoneyTransferTest {
 
     @Test
-    void shouldTestTransferBetweenTwoOwnCards() throws InterruptedException {
+    void shouldTestTransferBetweenTwoOwnCards() {
         var authInfo = DataHelper.getAuthInfo();
-        Thread.sleep(3000);
         var verificationCode = DataHelper.getVerificationCode();
-        Thread.sleep(3000);
         var loginPage = open("http://localhost:9999", LoginPage.class);
-        Thread.sleep(3000);
         var verificationPage = loginPage.validLogin(authInfo);
-        Thread.sleep(3000);
         var dashboardPage = verificationPage.validVerify(verificationCode);
-        Thread.sleep(3000);
-        //сохранить начальные балансы на картах
         int startBalFirst = dashboardPage.getCardBalance(DataHelper.getCardInfo(1).getTestId());
-        Thread.sleep(3000);
         int startBalSecond = dashboardPage.getCardBalance(DataHelper.getCardInfo(2).getTestId());
-        Thread.sleep(3000);
-        //выбрать карту для пополнения (1 или 2)
         TransferPage transferPage = dashboardPage.moneyTransferTo(DataHelper.getCardInfo(2));
         int amount = startBalFirst / 2;
         //перевести на вторую карту с первой

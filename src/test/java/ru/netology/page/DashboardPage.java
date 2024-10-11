@@ -18,17 +18,13 @@ public class DashboardPage {
 
     public int getCardBalance(String id) {
         var text = cards.findBy(Condition.attribute("data-test-id", id)).getText();
-        System.out.println(text);
         return extractBalance(text);
     }
 
     public int extractBalance(String text) {
         val start = text.indexOf(balanceStart);
-        System.out.println(balanceStart);
         val finish = text.indexOf(balanceFinish);
-        System.out.println(balanceFinish);
         val value = text.substring(start + balanceStart.length(), finish);
-        System.out.println(value);
         return Integer.parseInt(value);
     }
 

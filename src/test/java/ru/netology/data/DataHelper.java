@@ -9,7 +9,7 @@ public class DataHelper {
     }
 
     public static AuthInfo getOtherAuthInfo() {
-        return new AuthInfo("petya", "123qwerty");
+        return new AuthInfo("vasya", "qwerty12321");
     }
 
     public static CardInfo getCardInfo(int cardId) {
