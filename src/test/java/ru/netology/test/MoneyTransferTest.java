@@ -67,7 +67,7 @@ public class MoneyTransferTest {
     @Test
     void shouldTestTransferWithEmptyFields() {
         var authInfo = DataHelper.getAuthInfo();
-        var verificationCode = DataHelper.getOtherVerificationCode();
+        var verificationCode = DataHelper.getVerificationCode();
         var dashboardPage = open("http://localhost:9999", LoginPage.class).validLogin(authInfo).validVerify(verificationCode);
         TransferPage transferPage = dashboardPage.moneyTransferTo(DataHelper.getCardInfo(2));
         transferPage.notificationVisibility();
