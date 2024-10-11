@@ -28,7 +28,7 @@ public class DataHelper {
     }
 
     public static String getOtherVerificationCode() {
-        return "54321";
+        return "11111";
     }
 
     @Value
